@@ -7,7 +7,8 @@
 	<category label="General">
 		<setting label="Movie Folder:" type="folder" id="movie_folder" source="auto" option="writeable"/>
 		<setting label="Show Folder:" type="folder" id="show_folder" source="auto" option="writeable"/>
-		<setting label="Clear Database" type="bool" id="clear_database" default="false"/>
-		<setting label="Action" type="labelenum" id="action" values="links|play"/>
+		<setting label="Clear Database:" type="bool" id="clear_database" default="false"/>
+		<setting label="Action:" type="labelenum" id="action" values="links|play"/>
+		<setting label="Automatic Update (experimental):" type="bool" id="automatic" default="false"/>
 	</category>
 </settings>

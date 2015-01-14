@@ -7,7 +7,6 @@ import xbmc
 
 # this read the settings of add on
 settings = subscription.Settings()
-
 path = xbmc.translatePath('special://userdata')
 tree = ET.parse("%sfavourites.xml" % path)
 root = tree.getroot()
