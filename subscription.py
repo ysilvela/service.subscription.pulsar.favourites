@@ -248,8 +248,8 @@ def integration(listing, ID, type_list, folder, silence=False):
                         tv_show = TV_Show_code(ID[cm])
                     else:
                         tv_show = TV_Show(item)
-                    for season in range(max(data['season'], tv_show.first_season), tv_show.last_season):
-                        for episode in range(data['episode'], tv_show.last_episode[season]):
+                    for season in range(max(data['season'], tv_show.first_season), tv_show.last_season + 1):
+                        for episode in range(data['episode'], tv_show.last_episode[season-1] + 1):
                             cont += 1
                             link = 'plugin://plugin.video.pulsar/show/%s/season/%s/episode/%s/%s' % (tv_show.code, season, episode, action)
                             if not silence: pDialog.update(int(float(cm) / total * 100), "%s%s S%02dE%02d.strm" % (directory, item, season, episode))
@@ -257,7 +257,7 @@ def integration(listing, ID, type_list, folder, silence=False):
                                 text_file.write(link)
                         data['episode'] = 1 # change to new season and reset the episode to 1
                     data['season'] = tv_show.last_season
-                    data['episode'] = tv_show.last_episode[tv_show.last_season]
+                    data['episode'] = tv_show.last_episode[tv_show.last_season-1]
                     if not silence: pDialog.update(int(float(cm) / total * 100), 'Creating %s%s.strm...' % (directory, item))
                     xbmc.log('%s%s.strm added' % (directory, item), xbmc.LOGINFO)
                 # update database
